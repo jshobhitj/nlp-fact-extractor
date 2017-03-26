@@ -3,7 +3,7 @@ import bz2
 import urllib
 import time
 
-from nltk.tag import StanfordNERTagger
+import nltk.tag.stanford as stag
 
 
 def download_data(link, loc, delete_tmp=True):
@@ -121,14 +121,14 @@ def get_cleaned_and_tagged_data(link, delete_tmp=True):
         os.makedirs(tmp_loc)
     if not os.path.exists(data_loc):
         os.makedirs(data_loc)
-
+        
     get_data(link, tmp_loc)
-
+    
     start = time.time()
     idx = 0
     print "\nTagging data using Stanford NER Tagger (this may take time)..."
 
-    st = StanfordNERTagger('./lib/english.all.3class.distsim.crf.ser.gz', './lib/stanford-ner.jar')
+    st = stag.StanfordNERTagger('./lib/english.all.3class.distsim.crf.ser.gz', './lib/stanford-ner.jar')
     for subdir, dirs, files in os.walk(tmp_loc):
         for file in files:
             r_file_path = os.path.join(subdir, file)
