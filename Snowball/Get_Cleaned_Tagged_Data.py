@@ -109,22 +109,21 @@ def clean_data(loc, delete_tmp=True):
 
 
 def get_data(link, loc, delete_tmp=True):
-    if not os.path.exists(loc):
-        os.makedirs(loc)
-#     download_data(link, loc, delete_tmp)
+    download_data(link, loc, delete_tmp)
     extract_data(loc, delete_tmp)
     clean_data(loc, delete_tmp)
 
 
 def get_cleaned_and_tagged_data(link, delete_tmp=True):
     tmp_loc = './tmp/'
-    
     data_loc = './data/'
+    if not os.path.exists(tmp_loc):
+        os.makedirs(tmp_loc)
     if not os.path.exists(data_loc):
         os.makedirs(data_loc)
         
     get_data(link, tmp_loc)
-
+    
     start = time.time()
     idx = 0
     print "\nTagging data using Stanford NER Tagger (this may take time)..."
