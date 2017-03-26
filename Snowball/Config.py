@@ -1,7 +1,7 @@
 import ConfigParser
 
 class Config():
-    def __init(self, config_file_path):
+    def __init__(self, config_file_path):
         self.config_file_path = config_file_path
         
 #         self.config_file = config_file_path
@@ -26,9 +26,8 @@ class Config():
         self.tag1 = configParser.get('Config', 'tag1')
         self.tag2 = configParser.get('Config', 'tag2')
         
-        
-        
-        
+    def __repr__(self):
+        pass
         
         
         
