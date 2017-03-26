@@ -18,16 +18,26 @@ class Snowball(object):
         seed_file = open(self.config.seeds_file, 'r')
         for line in seed_file:
             words = [x.strip() for x in line.split('=')]
-#             print("words: ")
-#             print words
             self.seed_tuples.append(Tuple(self.config, words[0], words[1]))
         
-        print("seed tuples: ")
-        print(self.seed_tuples)
-             
+#         print("seed tuples: ")
+#         print(self.seed_tuples)
+
+
+    def run_snowball(self):
+        for iter in range(self.config.max_iterations):
+            matches = self.find_matches()
+            
+            self.cluster_patterns()
+            
+            self.filter_patterns()
+            
+            self.generate_tuples()
+            
+            self.filter_tuples()
         
     def find_matches(self):
-        pass
+            pass
         
     def cluster_patterns(self):
         pass
