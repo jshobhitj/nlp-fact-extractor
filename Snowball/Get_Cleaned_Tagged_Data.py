@@ -3,7 +3,7 @@ import bz2
 import urllib
 import time
 
-from nltk.tag import StanfordNERTagger
+import nltk.tag.stanford as stag
 
 
 def download_data(link, loc, delete_tmp=True):
@@ -111,24 +111,25 @@ def clean_data(loc, delete_tmp=True):
 def get_data(link, loc, delete_tmp=True):
     if not os.path.exists(loc):
         os.makedirs(loc)
-    download_data(link, loc, delete_tmp)
+#     download_data(link, loc, delete_tmp)
     extract_data(loc, delete_tmp)
     clean_data(loc, delete_tmp)
 
 
 def get_cleaned_and_tagged_data(link, delete_tmp=True):
     tmp_loc = './tmp/'
-    get_data(link, tmp_loc)
-
+    
     data_loc = './data/'
     if not os.path.exists(data_loc):
         os.makedirs(data_loc)
+        
+    get_data(link, tmp_loc)
 
-    st = time.time()
+    start = time.time()
     idx = 0
     print "\nTagging data using Stanford NER Tagger (this may take time)..."
 
-    st = StanfordNERTagger('./lib/english.all.3class.distsim.crf.ser.gz', './lib/stanford-ner.jar')
+    st = stag.StanfordNERTagger('./lib/english.all.3class.distsim.crf.ser.gz', './lib/stanford-ner.jar')
     for subdir, dirs, files in os.walk(tmp_loc):
         for file in files:
             r_file_path = os.path.join(subdir, file)
@@ -149,7 +150,7 @@ def get_cleaned_and_tagged_data(link, delete_tmp=True):
                 print 'Tagging done for %s files' % str(idx)
 
     print 'Tagging Complete.'
-    print 'Time taken: %s ms' % str(time.time() - st)
+    print 'Time taken: %s ms' % str(time.time() - start)
 
 
 get_cleaned_and_tagged_data("https://dumps.wikimedia.org/enwiki/20170320/enwiki-20170320-pages-articles1.xml-p000000010p000030302.bz2")
