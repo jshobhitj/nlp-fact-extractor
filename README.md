@@ -10,3 +10,9 @@ References:
 [2] Information extraction from Wikipedia using pattern learning, Márton Miháltz & Péter Pázmány, Journal Acta Cybernetica archive Volume 19 Issue 4, January 2010 Issue-in-Progress, Pages 677-694.
 
 [3] YAGO: A Core of Semantic Knowledge Unifying WordNet and Wikipedia, Fabian M. Suchanek, Gjergji Kasneci & Gerhard Weikum, Proceeding WWW '07 Proceedings of the 16th international conference on World Wide Web, Pages 697-706.
+
+[4] Wikipedia data from: https://dumps.wikimedia.org/enwiki
+
+[5] For cleaning wikipedia .xml data (to extract text): https://github.com/attardi/wikiextractor, http://medialab.di.unipi.it/wiki/Wikipedia_Extractor
+
+[6] For tagging data we have used Stanford NER Tagger: https://nlp.stanford.edu/software/CRF-NER.html
