@@ -2,6 +2,7 @@ import os
 import bz2
 import urllib
 import time
+import pickle
 
 import nltk.tag.stanford as stag
 
@@ -122,7 +123,7 @@ def get_cleaned_and_tagged_data(link, delete_tmp=True):
     if not os.path.exists(data_loc):
         os.makedirs(data_loc)
         
-    get_data(link, tmp_loc)
+    # get_data(link, tmp_loc)
     
     start = time.time()
     idx = 0
@@ -141,7 +142,7 @@ def get_cleaned_and_tagged_data(link, delete_tmp=True):
 
             td = open(w_file_path, 'w')
             for line in f:
-                td.write(str(st.tag(line.split())))
+                pickle.dump(st.tag(line.split()), td)
             td.close()
             idx += 1
 

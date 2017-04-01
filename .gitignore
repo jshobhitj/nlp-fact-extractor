@@ -1,1 +1,5 @@
 .idea/
+data/
+tmp/
+*.pyc
+k.py

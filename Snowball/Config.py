@@ -1,21 +1,22 @@
 import ConfigParser
 
-class Config():
+
+class Config:
     def __init__(self, config_file_path):
         self.config_file_path = config_file_path
-        
-#         self.config_file = config_file_path
+
         configParser = ConfigParser.RawConfigParser()
         configParser.read(config_file_path)
         
         self.training_dir = configParser.get('Config', 'training_dir')
         self.testing_file = configParser.get('Config', 'testing_file')
         self.seeds_file = configParser.get('Config', 'seeds_file')
+        self.processed_tuples = configParser.get('Config', 'processed_tuples_file')
         
         self.sim_threshold = float(configParser.get('Config', 'sim_threshold'))
         self.tuple_conf_threshold = float(configParser.get('Config', 'tuple_conf_threshold'))
-                                          
-        self.min_pat_support = float(configParser.get('Config', 'min_pat_support'))
+        self.support_threshold = float(configParser.get('Config', 'support_threshold'))
+
         self.max_iterations = float(configParser.get('Config', 'max_iterations'))
         self.middle_wt = float(configParser.get('Config', 'middle_wt'))
         self.left_wt = float(configParser.get('Config', 'left_wt'))
