@@ -3,7 +3,7 @@ from Tuple import Tuple
 from ProcessedTuples import ProcessedTuples
 from Config import Config
 import pickle
-
+import os
 
 class Snowball:
     def __init__(self):
@@ -43,6 +43,10 @@ class Snowball:
         # TODO: Case-folding for processed tuples
         matches = []
 
+        #if processed tuples file is not present, generate tuples
+        if not os.path.isfile(self.config.processed_tuples_file):
+            self.config.generate_processed_tuples()
+        
         # Read the data
         for p_tuple in ProcessedTuples(self.config):
             for s_tuple in self.seed_tuples:

@@ -4,7 +4,7 @@ import pickle
 class ProcessedTuples:
 
     def __init__(self, config):
-        self.file_path = config.processed_tuples
+        self.file_path = config.processed_tuples_file
         self.file = open(self.file_path, 'r')
 
     def __iter__(self):
