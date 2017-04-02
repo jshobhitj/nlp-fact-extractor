@@ -1,15 +1,15 @@
 
 class Tuple:
-    def __init__(self, config, tag1_value, tag2_value):
+    def __init__(self, config, tag1_value, tag2_value, left_dict = dict(), mid_dict = dict(), right_dict = dict()):
         self.config = config
         self.tag1_value = tag1_value
         self.tag2_value = tag2_value
         self.tag1 = config.tag1  # ORGANIZATION
         self.tag2 = config.tag2  # LOCATION
         
-        self.left = dict()
-        self.mid = dict()
-        self.right = dict()
+        self.left = left_dict
+        self.mid = mid_dict
+        self.right = right_dict
 
         # List of patterns which helped
         # generating this tuple.
