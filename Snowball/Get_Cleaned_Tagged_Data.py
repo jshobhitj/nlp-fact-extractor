@@ -3,6 +3,7 @@ import bz2
 import urllib
 import time
 import pickle
+import spacy
 
 import nltk.tag.stanford as stag
 
@@ -129,6 +130,49 @@ def get_cleaned_and_tagged_data(link, delete_tmp=True):
     idx = 0
     print "\nTagging data using Stanford NER Tagger (this may take time)..."
 
+    # stanford_tagging(data_loc, idx, tmp_loc)
+    nlp = spacy.load('en')
+    for subdir, dirs, files in os.walk(tmp_loc):
+        for file in files:
+            r_file_path = os.path.join(subdir, file)
+            f = open(r_file_path, 'r')
+
+            w_file_path = data_loc + r_file_path[len(tmp_loc):]
+
+            if not os.path.exists(os.path.dirname(w_file_path)):
+                os.makedirs(os.path.dirname(w_file_path))
+
+            td = open(w_file_path, 'w')
+            for para in f:
+                para = nlp(unicode(para, 'utf-8'))
+                for sent in para.sents:
+                    sent = nlp(unicode(str(sent), 'utf-8'))
+
+                    is_org_present = False
+                    is_loc_present = False
+                    tokens = []
+                    for ent in sent:
+                        tokens.append((ent.text, ent.ent_type_))
+                        if ent.ent_type_ == 'ORG':
+                            is_org_present = True
+                        if ent.ent_type_ == 'GPE':
+                            is_loc_present = True
+
+                    if is_org_present and is_loc_present:
+                        # pickle.dump(tokens, td)
+                        td.write(str(tokens))
+
+            td.close()
+            idx += 1
+
+            if idx % 5 == 0:
+                print 'Tagging done for %s files' % str(idx)
+
+    print 'Tagging Complete.'
+    print 'Time taken: %s ms' % str(time.time() - start)
+
+
+def stanford_tagging(data_loc, idx, tmp_loc):
     st = stag.StanfordNERTagger('./lib/english.all.3class.distsim.crf.ser.gz', './lib/stanford-ner.jar')
     for subdir, dirs, files in os.walk(tmp_loc):
         for file in files:
@@ -148,9 +192,6 @@ def get_cleaned_and_tagged_data(link, delete_tmp=True):
 
             if idx % 5 == 0:
                 print 'Tagging done for %s files' % str(idx)
-
-    print 'Tagging Complete.'
-    print 'Time taken: %s ms' % str(time.time() - start)
 
 
 get_cleaned_and_tagged_data("https://dumps.wikimedia.org/enwiki/20170320/enwiki-20170320-pages-articles1.xml-p000000010p000030302.bz2")
