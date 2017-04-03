@@ -128,7 +128,7 @@ def get_cleaned_and_tagged_data(link, delete_tmp=True):
     
     start = time.time()
     idx = 0
-    print "\nTagging data using Stanford NER Tagger (this may take time)..."
+    print "\nTagging data using Spacy Tagger (this may take time)..."
 
     # stanford_tagging(data_loc, idx, tmp_loc)
     nlp = spacy.load('en')
@@ -159,8 +159,7 @@ def get_cleaned_and_tagged_data(link, delete_tmp=True):
                             is_loc_present = True
 
                     if is_org_present and is_loc_present:
-                        # pickle.dump(tokens, td)
-                        td.write(str(tokens))
+                        pickle.dump(tokens, td)
 
             td.close()
             idx += 1
