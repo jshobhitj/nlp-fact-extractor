@@ -42,6 +42,10 @@ class Snowball:
             self.update_tuple_confidence()
             
             self.add_seed_tuples()
+
+        self.add_seed_tuples()
+        print "\nFinal Seed size: " + str(len(self.seed_tuples))
+        print self.seed_tuples
         
     def find_matches(self):
         # TODO: Case-folding for processed tuples
@@ -124,7 +128,7 @@ class Snowball:
         # TODO: Need to check whether candidate tuple is already in seed or
         # TODO: not if it is then whether to update conf or not
         for t in self.candidate_tuples:
-            if t.conf >= self.config.tuple_conf_threshold:
+            if t.conf >= self.config.tuple_conf_threshold and t.is_pos and t not in self.seed_tuples:
                 self.seed_tuples.append(t)
 
 

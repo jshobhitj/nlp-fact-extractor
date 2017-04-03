@@ -1,4 +1,6 @@
 Nintendo = Japan
 Nokia = Espoo
-Nissan Motor Company Ltd. = Nishi-ku
+Nissan = Yokohama
 Nortel Networks = Mississauga
+Ximis, Inc. = El Paso
+Porsche AG = Stuttgart
