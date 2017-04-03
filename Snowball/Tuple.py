@@ -13,7 +13,7 @@ class Tuple:
 
         # List of patterns which helped
         # generating this tuple.
-        self.gen_patterns = []
+        self.gen_patterns = {}
         self.conf = 0.0
         
         self.is_pos = True
@@ -33,6 +33,6 @@ class Tuple:
 
     def update_tuple_confidence(self):
         new_conf = 1.0
-        for pattern, similarity in self.gen_patterns:
+        for pattern, similarity in self.gen_patterns.items():
             new_conf *= (1 - (pattern.conf * similarity))
         self.conf = 1 - new_conf

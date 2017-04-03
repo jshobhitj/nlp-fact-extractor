@@ -1,10 +1,7 @@
-from __future__ import unicode_literals
 from Pattern import Pattern
 from Tuple import Tuple
 from ProcessedTuples import ProcessedTuples
 from Config import Config
-import pickle
-import os
 
 
 class Snowball:
@@ -26,7 +23,13 @@ class Snowball:
 
     def run_snowball(self):
         for iter in range(self.config.max_iterations):
+            print "\nIter: " + str(iter)
+            print "Seed size: " + str(len(self.seed_tuples))
+            print self.seed_tuples
+
             matches = self.find_matches()
+            print "Matches: "
+            print matches
             
             self.cluster_matches(matches)
             
@@ -41,7 +44,6 @@ class Snowball:
             self.add_seed_tuples()
         
     def find_matches(self):
-        # TODO: Remove tuples with period (.) in processed tuples
         # TODO: Case-folding for processed tuples
         matches = []
         
@@ -90,11 +92,13 @@ class Snowball:
                         best_pattern = pattern
 
             if best_similarity >= self.config.sim_threshold:
-                p_tuple.gen_patterns.append({best_pattern: best_similarity})
+                p_tuple.gen_patterns.update({best_pattern: best_similarity})
                 # TODO: Should we check for the tuple that is already in candidate tuples list from previous iteration
                 self.candidate_tuples.append(p_tuple)
 
     def normalize_conf(self, entries, norm_factor):
+        if norm_factor == 0:
+            return
         for entry in entries:
             entry.conf /= norm_factor
 

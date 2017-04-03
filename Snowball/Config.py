@@ -1,10 +1,10 @@
 import ConfigParser
-import pickle
-from nltk import word_tokenize
+import cPickle
 from collections import defaultdict
 from Tuple import Tuple
 import math
 import os
+
 
 class Config:
     def __init__(self, config_file_path):
@@ -57,7 +57,7 @@ class Config:
         with open('./data/AA/wiki_02', 'rb') as f:
             while True:
                 try:
-                    tagged_line = pickle.load(f)
+                    tagged_line = cPickle.load(f)
                 except EOFError:
                     return
                 
@@ -114,13 +114,13 @@ class Config:
                             self.processed_tuples.append(t)
                 # print(tag_matches)
                 
-                #write matches to file
-                print(self.processed_tuples_file)
+                # write matches to file
+                # print(self.processed_tuples_file)
                 tuple_file = open(self.processed_tuples_file, "w")
                 for pt in self.processed_tuples:
-                    pickle.dump(pt, tuple_file)
+                    cPickle.dump(pt, tuple_file)
         
-    #join split ORGANIZATION LOCATION tags and separate punctuations
+    # join split ORGANIZATION LOCATION tags and separate punctuations
     def process_tagged_line(self, tagged_line):
         idx = 0; final_tagged_line = []
         

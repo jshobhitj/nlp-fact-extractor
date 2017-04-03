@@ -2,7 +2,7 @@ import os
 import bz2
 import urllib
 import time
-import pickle
+import cPickle
 import spacy
 
 import nltk.tag.stanford as stag
@@ -159,7 +159,7 @@ def get_cleaned_and_tagged_data(link, delete_tmp=True):
                             is_loc_present = True
 
                     if is_org_present and is_loc_present:
-                        pickle.dump(tokens, td)
+                        cPickle.dump(tokens, td)
 
             td.close()
             idx += 1
@@ -185,7 +185,7 @@ def stanford_tagging(data_loc, idx, tmp_loc):
 
             td = open(w_file_path, 'w')
             for line in f:
-                pickle.dump(st.tag(line.split()), td)
+                cPickle.dump(st.tag(line.split()), td)
             td.close()
             idx += 1
 

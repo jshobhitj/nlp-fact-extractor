@@ -1,4 +1,4 @@
-import pickle
+import cPickle
 
 
 class ProcessedTuples:
@@ -12,7 +12,7 @@ class ProcessedTuples:
 
     def next(self):
         try:
-            return pickle.load(self.file)
+            return cPickle.load(self.file)
         except EOFError:
             self.file.close()
             raise StopIteration
