@@ -1,6 +1,11 @@
-Nintendo = Japan
-Nokia = Espoo
-Nissan = Yokohama
-Nortel Networks = Mississauga
-Ximis, Inc. = El Paso
-Porsche AG = Stuttgart
+eBay = US
+Garden Protein International = Richmond
+Sexton & Co. = Illinois
+S.E. Rykoff & Co. = Los Angeles
+TATA Motors = India
+TATA Motors = Mumbai
+Fun Cinemas = India
+SplashDot = Canada
+SplashDot = Vancouver
+Etisalat = UAE
+New Brunswick Broadcasting = New Brunswick

@@ -24,6 +24,14 @@ class Pattern:
     def __repr__(self):
         return str(self.mid_centroid)
 
+    def __repr__(self):
+        return "\nConfidence: " + str(self.conf) + "\nMid: " + str(self.mid_centroid) \
+               + "\nPos count: " + str(self.pos_count) + "\nNeg count: " + str(self.neg_count)
+
+    def __repr__(self):
+        return "\nConfidence: " + str(self.conf) + "\nMid: " + str(self.mid_centroid) \
+               + "\nPos count: " + str(self.pos_count) + "\nNeg count: " + str(self.neg_count)
+
     # This method computes the dot product of two vectors
     # v1 (pattern's left/middle/right vector) and
     # v2 (tuple's) left/middle/right vector)
