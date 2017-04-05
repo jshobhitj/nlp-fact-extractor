@@ -52,7 +52,8 @@ class Snowball:
         matches = []
         
         # Read the data
-        for p_tuple in ProcessedTuples(self.config):
+#         for p_tuple in ProcessedTuples(self.config):
+        for p_tuple in self.config.processed_tuples:
             for s_tuple in self.seed_tuples:
                 if p_tuple != s_tuple:
                     continue
@@ -83,7 +84,8 @@ class Snowball:
                 self.patterns.remove(pattern)
         
     def generate_tuples(self):
-        for p_tuple in ProcessedTuples(self.config):
+#         for p_tuple in ProcessedTuples(self.config):
+        for p_tuple in self.config.processed_tuples:
             best_similarity = 0.0
             best_pattern = None
             for pattern in self.patterns:

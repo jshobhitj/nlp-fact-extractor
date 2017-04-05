@@ -114,11 +114,12 @@ class Config:
                             self.processed_tuples.append(t)
                 # print(tag_matches)
                 
+                #NOTE: dont write matches to file
                 # write matches to file
                 # print(self.processed_tuples_file)
-                tuple_file = open(self.processed_tuples_file, "w")
-                for pt in self.processed_tuples:
-                    cPickle.dump(pt, tuple_file)
+#                 tuple_file = open(self.processed_tuples_file, "w")
+#                 for pt in self.processed_tuples:
+#                     cPickle.dump(pt, tuple_file)
         
     # join split ORGANIZATION LOCATION tags and separate punctuations
     def process_tagged_line(self, tagged_line):

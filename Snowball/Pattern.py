@@ -20,6 +20,9 @@ class Pattern:
 
         self.pos_count = 0.0
         self.neg_count = 0.0
+    
+    def __repr__(self):
+        return str(self.mid_centroid)
 
     # This method computes the dot product of two vectors
     # v1 (pattern's left/middle/right vector) and
