@@ -2,7 +2,11 @@ from Pattern import Pattern
 from Tuple import Tuple
 from ProcessedTuples import ProcessedTuples
 from Config import Config
-
+import json
+import re
+from collections import defaultdict
+import nltk
+nltk.download('stopwords')
 
 class Snowball:
     def __init__(self):
@@ -46,6 +50,9 @@ class Snowball:
         self.add_seed_tuples()
         print "\nFinal Seed size: " + str(len(self.seed_tuples))
         print self.seed_tuples
+        
+        print "\nEvaluation: "
+        self.evaluation()
         
     def find_matches(self):
         # TODO: Case-folding for processed tuples
@@ -132,6 +139,58 @@ class Snowball:
         for t in self.candidate_tuples:
             if t.conf >= self.config.tuple_conf_threshold and t.is_pos and t not in self.seed_tuples:
                 self.seed_tuples.append(t)
+                
+    def evaluation(self):
+        #assume facts is in json format
+        facts = open(self.config.fact_file, 'r')
+        ideal_dict = defaultdict(lambda: list)
+        join_set = set()
+        tag1_type = self.config.tag1
+        tag2_type = self.config.tag2
+        
+        for line in facts:
+            fact = json.loads(line)
+            #store canonical form of org name in ideal_dict, i.e. only first word and lower case alphanum
+            ideal_dict[self.canonical_org(fact[tag1_type])] = fact[tag2_type]
+        
+        true_pos = 0
+        #calculate join_dict
+        for tup in self.seed_tuples[0:4]:
+            base_org = self.canonical_org(tup.tag1_value) 
+            print('\nbase_org: ', base_org)
+            if base_org in ideal_dict:
+                join_set.add(base_org)
+                
+                for ideal_loc_val in ideal_dict[base_org]:
+                    print('matching: ', tup.tag2_value, ideal_loc_val) 
+                    if (self.is_loc_equal(tup.tag2_value, ideal_loc_val)):
+                        true_pos += 1
+        
+        print('true_pos: ', true_pos)
+        print('\nideal_dict: ', ideal_dict)
+        print('\njoin_set: ', join_set)
+        
+        #calculate precision
+        precision = true_pos / float(len(join_set)) 
+        
+        #calculate recall
+        recall = true_pos / float(len(ideal_dict))
+        
+        print("precision: ", precision)
+        print("recall: ", recall)
+    
+    def canonical_org(self, org):
+        stop_list = nltk.corpus.stopwords.words("english")
+        org_names = [word for word in org.split() if word not in stop_list]
+        org_head = org_names[0]
+        
+        return re.sub('\W+', '', org_head).lower()
+    
+    def is_loc_equal(self, loc1, loc2):
+        return re.sub('\W+', '', loc1).lower() == re.sub('\W+', '', loc2).lower()
+        
+        
+        
 
 
 def main():

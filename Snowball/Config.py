@@ -16,6 +16,7 @@ class Config:
         self.training_dir = configParser.get('Config', 'training_dir')
         self.testing_file = configParser.get('Config', 'testing_file')
         self.seeds_file = configParser.get('Config', 'seeds_file')
+        self.fact_file = configParser.get('Config', 'fact_file')
         self.processed_tuples_file = configParser.get('Config', 'processed_tuples_file')
         self.processed_tuples = []
         
