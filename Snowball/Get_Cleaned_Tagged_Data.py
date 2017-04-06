@@ -193,4 +193,5 @@ def stanford_tagging(data_loc, idx, tmp_loc):
                 print 'Tagging done for %s files' % str(idx)
 
 
-get_cleaned_and_tagged_data("https://dumps.wikimedia.org/enwiki/20170320/enwiki-20170320-pages-articles1.xml-p000000010p000030302.bz2")
+# get_cleaned_and_tagged_data("https://dumps.wikimedia.org/enwiki/20170320/enwiki-20170320-pages-articles1.xml-p000000010p000030302.bz2")
+get_cleaned_and_tagged_data("https://dumps.wikimedia.org/enwiki/20170320/enwiki-20170320-pages-articles18.xml-p013693075p016120541.bz2")

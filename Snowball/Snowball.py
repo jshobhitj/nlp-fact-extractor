@@ -32,7 +32,7 @@ class Snowball:
             print self.seed_tuples
 
             matches = self.find_matches()
-            print "Matches: "
+            print "Matches: " + str(len(matches))
             print matches
             
             self.cluster_matches(matches)
@@ -46,8 +46,12 @@ class Snowball:
             self.update_tuple_confidence()
             
             self.add_seed_tuples()
+            # print "\nPatterns: "
+            # print self.patterns
 
         self.add_seed_tuples()
+        # print "\nPatterns: "
+        # print self.patterns
         print "\nFinal Seed size: " + str(len(self.seed_tuples))
         print self.seed_tuples
         
@@ -59,7 +63,7 @@ class Snowball:
         matches = []
         
         # Read the data
-#         for p_tuple in ProcessedTuples(self.config):
+        # for p_tuple in ProcessedTuples(self.config):
         for p_tuple in self.config.processed_tuples:
             for s_tuple in self.seed_tuples:
                 if p_tuple != s_tuple:
@@ -91,7 +95,7 @@ class Snowball:
                 self.patterns.remove(pattern)
         
     def generate_tuples(self):
-#         for p_tuple in ProcessedTuples(self.config):
+        # for p_tuple in ProcessedTuples(self.config):
         for p_tuple in self.config.processed_tuples:
             best_similarity = 0.0
             best_pattern = None
