@@ -29,6 +29,8 @@ class Config:
         self.left_wt = float(configParser.get('Config', 'left_wt'))
         self.right_wt = float(configParser.get('Config', 'right_wt'))
         self.window_size = int(configParser.get('Config', 'window_size'))
+        self.left_limit = int(configParser.get('Config', 'left_limit'))
+        self.right_limit = int(configParser.get('Config', 'right_limit'))
 
         self.weight_update = float(configParser.get('Config', 'weight_update'))
         
@@ -56,6 +58,7 @@ class Config:
         #TODO: tagged files need to be picked from training_dir 
         # with open('./data/AA/wiki_02', 'rb') as f:
         data = './data/AA/'
+        tmp_file = open('temp.txt', 'w')
         for subdir, dirs, files in os.walk(data):
             for file in files:
                 f = open(data + file, 'r')
@@ -94,7 +97,7 @@ class Config:
                                 #build left, middle and right contexts
                                 left_dict = defaultdict(int); mid_dict = defaultdict(int); right_dict = defaultdict(int);
                                 i = idx_org - 1
-                                while (i >= 0 and i >= (idx_org - self.window_size) and final_tagged_line[i][1] != self.tag1 and final_tagged_line[i][1] != self.tag2):
+                                while (i >= 0 and i >= (idx_org - self.left_limit) and final_tagged_line[i][1] != self.tag1 and final_tagged_line[i][1] != self.tag2):
                                     left_dict[final_tagged_line[i][0]] += 1
                                     i -= 1
                                 self.norm(left_dict)
@@ -106,7 +109,7 @@ class Config:
                                 self.norm(mid_dict)
 
                                 i = idx_loc + 1
-                                while (i < len(final_tagged_line) and i < (idx_loc + self.window_size + 1) and final_tagged_line[i][1] != self.tag1 and final_tagged_line[i][1] != self.tag2):
+                                while (i < len(final_tagged_line) and i < (idx_loc + self.right_limit + 1) and final_tagged_line[i][1] != self.tag1 and final_tagged_line[i][1] != self.tag2):
                                     right_dict[final_tagged_line[i][0]] += 1
                                     i += 1
                                 self.norm(right_dict)
@@ -116,7 +119,10 @@ class Config:
                                 # print(right_dict)
                                 print(final_tagged_line[idx_org][0], final_tagged_line[idx_loc][0])
                                 t = Tuple(self, final_tagged_line[idx_org][0], final_tagged_line[idx_loc][0], left_dict, mid_dict, right_dict)
+                                tmp_file.write(final_tagged_line[idx_org][0].encode('ascii', 'ignore') + ', ' 
+                                               + final_tagged_line[idx_loc][0].encode('ascii', 'ignore') + "\n")
                                 self.processed_tuples.append(t)
+                                
                     # print(tag_matches)
 
                     # write matches to file

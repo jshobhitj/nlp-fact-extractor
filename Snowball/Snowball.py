@@ -19,9 +19,12 @@ class Snowball:
         
     def initialize_seed(self):
         seed_file = open(self.config.seeds_file, 'r')
+        
         for line in seed_file:
-            words = [x.strip() for x in line.split('=')]
-            t = Tuple(self.config, words[0], words[1])
+            fact = json.loads(line)
+            tag_a = fact[self.config.tag1]
+            tag_b = fact[self.config.tag2]
+            t = Tuple(self.config, tag_a, tag_b)
             t.conf = 1.0
             self.seed_tuples.append(t)
 
