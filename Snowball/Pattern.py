@@ -110,6 +110,8 @@ class Pattern:
             self.pos_count += 1
 
     def update_confidence(self):
+        if self.pos_count == 0 and self.neg_count == 0:
+            return 0
         new_conf = self.pos_count / (self.pos_count + self.neg_count)
         new_conf_rlog_f = new_conf * math.log(self.pos_count, 2)
         self.conf *= (1 - self.config.weight_update)
