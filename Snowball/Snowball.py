@@ -8,6 +8,7 @@ from collections import defaultdict
 import nltk
 nltk.download('stopwords')
 
+
 class Snowball:
     def __init__(self):
         self.config = Config(r"./config/config.conf")
@@ -32,7 +33,7 @@ class Snowball:
         for iter in range(self.config.max_iterations):
             print "\nIter: " + str(iter)
             print "Seed size: " + str(len(self.seed_tuples))
-            print self.seed_tuples
+            print sorted(self.seed_tuples, key=lambda tuple: tuple.conf, reverse=True)
 
             matches = self.find_matches()
             print "Matches: " + str(len(matches))
@@ -56,7 +57,7 @@ class Snowball:
         # print "\nPatterns: "
         # print self.patterns
         print "\nFinal Seed size: " + str(len(self.seed_tuples))
-        print self.seed_tuples
+        print sorted(self.seed_tuples, key=lambda tuple: tuple.conf, reverse=True)
         
         print "\nEvaluation: "
         self.evaluation()
@@ -195,10 +196,6 @@ class Snowball:
     
     def is_loc_equal(self, loc1, loc2):
         return re.sub('\W+', '', loc1).lower() == re.sub('\W+', '', loc2).lower()
-        
-        
-        
-
 
 def main():
     snowball = Snowball()
