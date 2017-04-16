@@ -176,8 +176,11 @@ class Snowball:
                 break
 
         companies = set(companies)
+        #companies_base = [company.replace(" ", "") for company in companies] 
+        
         idx = 0
         for seed in self.seed_tuples:
+#             seed_base_org = seed.tag1_value.replace(" ", "")
             if seed.tag1_value in companies:
                 print seed
                 idx += 1

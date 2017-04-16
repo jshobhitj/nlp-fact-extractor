@@ -3,6 +3,7 @@ import math
 import string
 import cPickle
 import ConfigParser
+import re
 
 from Tuple import Tuple
 from collections import defaultdict
@@ -74,8 +75,6 @@ class Config:
                         break
 
                     final_tagged_line = self.process_tagged_line(tagged_line)
-
-                    # print(final_tagged_line)
 
                     # find org-loc pairs in final tagged line
                     for idx in range(len(final_tagged_line)):
@@ -186,6 +185,10 @@ class Config:
                 org += tagged_line[idx][0]
                 idx += 1; first = False
                 
+            #cleanup extra spaces with comma, hyphen and apostrophe
+            org = re.sub('\s*-\s*', '-', org)
+            org = re.sub("\s*([,'])", r"\1", org)
+                
             if (org != ''):
                 comma_present = False
                 if (org[-1:] == ','):
@@ -203,7 +206,6 @@ class Config:
                 idx += 1; first = False
                 
             if (loc != ''):
-                #TODO: handle case when LOCATION ends with period not comma ( Menlo Park.)
                 comma_present = False
                 if (loc[-1:] == ','):
                     loc = loc[:-1]
