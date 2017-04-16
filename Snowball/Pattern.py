@@ -20,13 +20,6 @@ class Pattern:
 
         self.pos_count = 0.0
         self.neg_count = 0.0
-    
-    def __repr__(self):
-        return str(self.mid_centroid)
-
-    def __repr__(self):
-        return "\nConfidence: " + str(self.conf) + "\nMid: " + str(self.mid_centroid) \
-               + "\nPos count: " + str(self.pos_count) + "\nNeg count: " + str(self.neg_count)
 
     def __repr__(self):
         return "\nConfidence: " + str(self.conf) + "\nMid: " + str(self.mid_centroid) \
@@ -64,7 +57,7 @@ class Pattern:
     # This method updates the centroid of pattern
     # v1 (pattern's left/middle/right vector) and
     # v2 (tuple's) left/middle/right vector)
-    def update(self, v1, v2):
+    def update1(self, v1, v2):
         union = dict(v1, **v2)
         for token in union.keys():
             val1 = v1.get(token)
@@ -75,6 +68,17 @@ class Pattern:
                 val1 *= self.match_count
                 if val2 is not None:
                     val1 += val2
+                val1 /= (self.match_count + 1)
+            v1.update({token: val1})
+
+    def update(self, v1, v2):
+        for token, val1 in v1.items():
+            val2 = v2.get(token)
+            if val2 is None:
+                continue
+            else:
+                val1 *= self.match_count
+                val1 += val2
                 val1 /= (self.match_count + 1)
             v1.update({token: val1})
 
@@ -101,9 +105,12 @@ class Pattern:
             if s_tuple == t:
                 self.pos_count += 1
                 is_already_in_seed = True
+                break
             elif s_tuple.tag1_value == t.tag1_value:
-                t.is_pos = False
                 self.neg_count += 1
+                t.is_pos = False
+                is_already_in_seed = True
+                break
 
         # TODO: Whether to consider tuples from current iteration in this calculation or not
         if is_already_in_seed is False:

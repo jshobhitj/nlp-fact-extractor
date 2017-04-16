@@ -1,12 +1,15 @@
+import re
+import json
+import nltk
+import cPickle
+
 from Pattern import Pattern
 from Tuple import Tuple
-from ProcessedTuples import ProcessedTuples
 from Config import Config
-import json
-import re
 from collections import defaultdict
-import nltk
-nltk.download('stopwords')
+
+
+# nltk.download('stopwords')
 
 
 class Snowball:
@@ -60,10 +63,10 @@ class Snowball:
         print sorted(self.seed_tuples, key=lambda tuple: tuple.conf, reverse=True)
         
         print "\nEvaluation: "
-        self.evaluation()
+        self.test()
+        # self.evaluation()
         
     def find_matches(self):
-        # TODO: Case-folding for processed tuples
         matches = []
         
         # Read the data
@@ -142,11 +145,47 @@ class Snowball:
         self.normalize_conf(self.candidate_tuples, max_conf)
 
     def add_seed_tuples(self):
-        # TODO: Need to check whether candidate tuple is already in seed or
-        # TODO: not if it is then whether to update conf or not
         for t in self.candidate_tuples:
-            if t.conf >= self.config.tuple_conf_threshold and t.is_pos and t not in self.seed_tuples:
-                self.seed_tuples.append(t)
+            if t.conf >= self.config.tuple_conf_threshold and t.is_pos:
+                is_not_in_seed = True
+                idx = -1
+                for s_tuple in self.seed_tuples:
+                    idx += 1
+                    if s_tuple == t:
+                        is_not_in_seed = False
+                        break
+                    elif s_tuple.tag1_value == t.tag1_value:
+                        if t.conf > s_tuple.conf:
+                            s_tuple.is_pos = False
+                            del self.seed_tuples[idx]
+                        else:
+                            is_not_in_seed = False
+                            t.is_pos = False
+                        break
+
+                if is_not_in_seed:
+                    self.seed_tuples.append(t)
+
+    def test(self):
+        f = open(self.config.testing_file, 'r')
+        companies = None
+        while True:
+            try:
+                companies = cPickle.load(f)
+            except EOFError:
+                break
+
+        companies = set(companies)
+        idx = 0
+        for seed in self.seed_tuples:
+            if seed.tag1_value in companies:
+                print seed
+                idx += 1
+
+        print '\n'
+        print 'Count: ' + str(idx)
+        print 'Total Companies: ' + str(len(companies))
+        print '\n'
                 
     def evaluation(self):
         #assume facts is in json format
@@ -197,12 +236,10 @@ class Snowball:
     def is_loc_equal(self, loc1, loc2):
         return re.sub('\W+', '', loc1).lower() == re.sub('\W+', '', loc2).lower()
 
+
 def main():
     snowball = Snowball()
     snowball.run_snowball()
-
-    # Evaluation
-    # print results
         
 if __name__ == "__main__":
     main()

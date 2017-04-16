@@ -5,7 +5,6 @@ import time
 import cPickle
 import spacy
 import re
-
 import nltk.tag.stanford as stag
 
 
@@ -121,8 +120,6 @@ def get_cleaned_and_tagged_data(link, delete_tmp=True):
     tmp_loc = './tmp/'
     data_loc = './data/'
     title_regex = r'title\s*=\s*"(.*)"'
-    company_loc = './config/company_file.txt'
-    company_file = open(company_loc, 'w') 
     
     if not os.path.exists(tmp_loc):
         os.makedirs(tmp_loc)
@@ -133,6 +130,7 @@ def get_cleaned_and_tagged_data(link, delete_tmp=True):
     
     start = time.time()
     idx = 0
+    companies = []
     print "\nTagging data using Spacy Tagger (this may take time)..."
 
     # stanford_tagging(data_loc, idx, tmp_loc)
@@ -149,12 +147,12 @@ def get_cleaned_and_tagged_data(link, delete_tmp=True):
 
             td = open(w_file_path, 'w')
             for para in f:
-                para = nlp(unicode(para, 'utf-8'))
-                #match company in title
                 company_name = re.findall(title_regex, para)
                 if len(company_name) != 0:
-                    company_file.write(company_name[0] + '\n')
-                
+                    companies.append(company_name[0])
+
+                para = nlp(unicode(para, 'utf-8'))
+
                 for sent in para.sents:
                     sent = nlp(unicode(str(sent), 'utf-8'))
  
@@ -176,7 +174,10 @@ def get_cleaned_and_tagged_data(link, delete_tmp=True):
 
             if idx % 5 == 0:
                 print 'Tagging done for %s files' % str(idx)
-                
+
+    company_loc = './config/company_file'
+    company_file = open(company_loc, 'w')
+    cPickle.dump(companies, company_file)
     company_file.close()
     print 'Tagging Complete.'
     print 'Time taken: %s ms' % str(time.time() - start)
