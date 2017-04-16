@@ -116,7 +116,7 @@ class Config:
 
                                 # Ignore invalid locations
                                 if self.check_valid_location(locations, final_tagged_line[idx_loc][0].encode('ascii', 'ignore')) is False:
-                                    continue
+                                   continue
                                 print(final_tagged_line[idx_org][0], final_tagged_line[idx_loc][0])
                                 t = Tuple(self, final_tagged_line[idx_org][0], final_tagged_line[idx_loc][0], left_dict, mid_dict, right_dict)
                                 self.processed_tuples.append(t)

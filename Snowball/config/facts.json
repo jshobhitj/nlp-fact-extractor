@@ -1,100 +1,100 @@
-{"ORG" : "Kingston Technology", "GPE" : []}
-{"ORG" : "Emcor", "GPE" : []}
-{"ORG" : "Wausau Paper", "GPE" : []}
-{"ORG" : "NACCO Industries", "GPE" : []}
-{"ORG" : "Ford Motor Company", "GPE" : []}
-{"ORG" : "LeapFrog Enterprises", "GPE" : []}
-{"ORG" : "Cummins", "GPE" : []}
-{"ORG" : "Teradyne", "GPE" : []}
-{"ORG" : "AnaSpec", "GPE" : []}
-{"ORG" : "Chipotle Mexican Grill", "GPE" : []}
-{"ORG" : "Avon Products", "GPE" : []}
-{"ORG" : "BMC Software", "GPE" : []}
-{"ORG" : "Six Flags", "GPE" : []}
-{"ORG" : "CoolTouch Monitors", "GPE" : []}
-{"ORG" : "CEB Inc.", "GPE" : []}
-{"ORG" : "Qualcomm", "GPE" : []}
-{"ORG" : "Aetna", "GPE" : []}
-{"ORG" : "Andronico's", "GPE" : []}
-{"ORG" : "Altec Lansing", "GPE" : []}
-{"ORG" : "Activision", "GPE" : []}
-{"ORG" : "Lucas Oil", "GPE" : []}
-{"ORG" : "LabCorp", "GPE" : []}
-{"ORG" : "General Mills", "GPE" : []}
-{"ORG" : "Cantor Fitzgerald", "GPE" : []}
-{"ORG" : "KeyBank", "GPE" : []}
-{"ORG" : "Leggett &amp; Platt", "GPE" : []}
+{"ORG" : "Leonard Green &amp; Partners", "GPE" : []}
+{"ORG" : "Waters Corporation", "GPE" : []}
+{"ORG" : "Flowserve", "GPE" : []}
+{"ORG" : "Talend", "GPE" : []}
+{"ORG" : "ABM Industries", "GPE" : []}
+{"ORG" : "O'Reilly Auto Parts", "GPE" : []}
+{"ORG" : "Global Insight", "GPE" : []}
+{"ORG" : "Sherwin-Williams", "GPE" : []}
+{"ORG" : "Bass Pro Shops", "GPE" : []}
+{"ORG" : "Walmart", "GPE" : []}
+{"ORG" : "Leidos", "GPE" : []}
+{"ORG" : "Enterasys Networks", "GPE" : []}
+{"ORG" : "Sun Products", "GPE" : []}
+{"ORG" : "Time Warner", "GPE" : []}
+{"ORG" : "OptiRTC", "GPE" : []}
+{"ORG" : "Towers Perrin", "GPE" : []}
+{"ORG" : "Penske Corporation", "GPE" : []}
+{"ORG" : "Hawley Products Company", "GPE" : []}
+{"ORG" : "UnitedHealth Group", "GPE" : []}
+{"ORG" : "Dell", "GPE" : []}
+{"ORG" : "Berkshire Hathaway", "GPE" : []}
+{"ORG" : "Hospital Corporation of America", "GPE" : []}
+{"ORG" : "Pep Boys", "GPE" : []}
+{"ORG" : "Ballistic Recovery Systems", "GPE" : []}
+{"ORG" : "Assurant", "GPE" : []}
 {"ORG" : "Louisiana-Pacific", "GPE" : []}
-{"ORG" : "Focus Brands", "GPE" : []}
-{"ORG" : "Big Boy Restaurants", "GPE" : []}
-{"ORG" : "Magnavox", "GPE" : []}
-{"ORG" : "Ashley Furniture Industries", "GPE" : []}
-{"ORG" : "Mercury Marine", "GPE" : []}
-{"ORG" : "W. R. Grace and Company", "GPE" : []}
-{"ORG" : "Esterline", "GPE" : []}
-{"ORG" : "T. Rowe Price", "GPE" : []}
-{"ORG" : "Lennox International", "GPE" : []}
-{"ORG" : "Owens-Illinois", "GPE" : []}
-{"ORG" : "Avaya", "GPE" : []}
-{"ORG" : "Anchor Bay Entertainment", "GPE" : []}
-{"ORG" : "Anixter", "GPE" : []}
-{"ORG" : "Interplay Entertainment", "GPE" : []}
-{"ORG" : "Diebold", "GPE" : []}
-{"ORG" : "Charter Arms", "GPE" : []}
-{"ORG" : "Alaska Air Group", "GPE" : []}
-{"ORG" : "Georgia-Pacific", "GPE" : []}
-{"ORG" : "Occidental Petroleum", "GPE" : []}
-{"ORG" : "Dollar Tree", "GPE" : []}
-{"ORG" : "Biomet", "GPE" : []}
-{"ORG" : "American Axle", "GPE" : []}
-{"ORG" : "Denbury Resources", "GPE" : []}
-{"ORG" : "Entergy", "GPE" : []}
-{"ORG" : "Activision Blizzard", "GPE" : []}
-{"ORG" : "Kahr Arms", "GPE" : []}
-{"ORG" : "Bose Corporation", "GPE" : []}
-{"ORG" : "Teradata", "GPE" : []}
-{"ORG" : "Planet Hollywood", "GPE" : []}
-{"ORG" : "Six Flags", "GPE" : []}
-{"ORG" : "Dollar Tree", "GPE" : []}
-{"ORG" : "Alexion Pharmaceuticals", "GPE" : []}
-{"ORG" : "BrightPoint", "GPE" : []}
-{"ORG" : "TransDigm Group", "GPE" : []}
-{"ORG" : "United Country Real Estate", "GPE" : []}
-{"ORG" : "Dean Foods", "GPE" : []}
-{"ORG" : "Plains All American Pipeline", "GPE" : []}
-{"ORG" : "DynCorp", "GPE" : []}
-{"ORG" : "American Apparel", "GPE" : []}
-{"ORG" : "Ashland Inc.", "GPE" : []}
-{"ORG" : "Russell Investments", "GPE" : []}
-{"ORG" : "Lehman Brothers", "GPE" : []}
-{"ORG" : "Gordon Food Service", "GPE" : []}
-{"ORG" : "Columbia Sussex", "GPE" : []}
-{"ORG" : "Omnicare", "GPE" : []}
-{"ORG" : "Interstate Batteries", "GPE" : []}
-{"ORG" : "Adaptec", "GPE" : []}
-{"ORG" : "Hewlett Packard Enterprise", "GPE" : []}
-{"ORG" : "Ceridian", "GPE" : []}
-{"ORG" : "Owens Corning", "GPE" : []}
-{"ORG" : "Nordstrom", "GPE" : []}
-{"ORG" : "Erie Insurance Group", "GPE" : []}
-{"ORG" : "Airgas", "GPE" : []}
-{"ORG" : "Ecolab", "GPE" : []}
-{"ORG" : "MIG, Inc.", "GPE" : []}
-{"ORG" : "Cumberland Farms", "GPE" : []}
-{"ORG" : "DaVita", "GPE" : []}
-{"ORG" : "Dole Food Company", "GPE" : []}
-{"ORG" : "Papa John's Pizza", "GPE" : []}
-{"ORG" : "Paramount Pictures", "GPE" : []}
-{"ORG" : "Traxxas", "GPE" : []}
-{"ORG" : "Chugach Alaska Corporation", "GPE" : []}
-{"ORG" : "Babcock &amp; Wilcox", "GPE" : []}
-{"ORG" : "FedEx", "GPE" : []}
-{"ORG" : "Wabtec Corporation", "GPE" : []}
+{"ORG" : "PNY Technologies", "GPE" : []}
+{"ORG" : "Noble Energy", "GPE" : []}
+{"ORG" : "Jimmy John's", "GPE" : []}
+{"ORG" : "Benchmark Electronics", "GPE" : []}
 {"ORG" : "PetSmart", "GPE" : []}
-{"ORG" : "Altra Industrial Motion", "GPE" : []}
-{"ORG" : "Nuance Communications", "GPE" : []}
-{"ORG" : "Sbarro", "GPE" : []}
-{"ORG" : "Pall Corporation", "GPE" : []}
-{"ORG" : "Huntington Ingalls Industries", "GPE" : []}
-{"ORG" : "Eli Lilly and Company", "GPE" : []}
-{"ORG" : "Consol Energy", "GPE" : []}
+{"ORG" : "Dick's Sporting Goods", "GPE" : []}
+{"ORG" : "Pinnacle Systems", "GPE" : []}
+{"ORG" : "Toll Brothers", "GPE" : []}
+{"ORG" : "Lennox International", "GPE" : []}
+{"ORG" : "Mars, Incorporated", "GPE" : []}
+{"ORG" : "Applied Industrial Technologies", "GPE" : []}
+{"ORG" : "Zaxby's", "GPE" : []}
+{"ORG" : "RR Donnelley", "GPE" : []}
+{"ORG" : "O.F. Mossberg &amp; Sons", "GPE" : []}
+{"ORG" : "Gojo Industries", "GPE" : []}
+{"ORG" : "CACI", "GPE" : []}
+{"ORG" : "Aflac", "GPE" : []}
+{"ORG" : "Asbury Automotive Group", "GPE" : []}
+{"ORG" : "Spirit AeroSystems", "GPE" : []}
+{"ORG" : "Palantir Technologies", "GPE" : []}
+{"ORG" : "Alexion Pharmaceuticals", "GPE" : []}
+{"ORG" : "Dunkin' Donuts", "GPE" : []}
+{"ORG" : "Little Caesars", "GPE" : []}
+{"ORG" : "Avon Products", "GPE" : []}
+{"ORG" : "Perrigo", "GPE" : []}
+{"ORG" : "Genworth Financial", "GPE" : []}
+{"ORG" : "Bob Evans Restaurants", "GPE" : []}
+{"ORG" : "Allstate", "GPE" : []}
+{"ORG" : "MTX Audio", "GPE" : []}
+{"ORG" : "Zilog", "GPE" : []}
+{"ORG" : "Symetra", "GPE" : []}
+{"ORG" : "Charles Schwab Corporation", "GPE" : []}
+{"ORG" : "Mattel", "GPE" : []}
+{"ORG" : "Marsh &amp; McLennan Companies", "GPE" : []}
+{"ORG" : "Lincoln Industries", "GPE" : []}
+{"ORG" : "Ecolab", "GPE" : []}
+{"ORG" : "Curtiss-Wright", "GPE" : []}
+{"ORG" : "Illinois Tool Works", "GPE" : []}
+{"ORG" : "GHD Group", "GPE" : []}
+{"ORG" : "Kiewit Corporation", "GPE" : []}
+{"ORG" : "Convergys", "GPE" : []}
+{"ORG" : "Rockwell Collins", "GPE" : []}
+{"ORG" : "NL Industries", "GPE" : []}
+{"ORG" : "Liberty Media", "GPE" : []}
+{"ORG" : "Genworth Financial", "GPE" : []}
+{"ORG" : "Church &amp; Dwight", "GPE" : []}
+{"ORG" : "ADC Telecommunications", "GPE" : []}
+{"ORG" : "World Financial Group", "GPE" : []}
+{"ORG" : "Goodyear Tire and Rubber Company", "GPE" : []}
+{"ORG" : "TiVo Inc.", "GPE" : []}
+{"ORG" : "Kroger", "GPE" : []}
+{"ORG" : "Fluor Corporation", "GPE" : []}
+{"ORG" : "Newmont Mining Corporation", "GPE" : []}
+{"ORG" : "Activision Blizzard", "GPE" : []}
+{"ORG" : "Hess Corporation", "GPE" : []}
+{"ORG" : "Bain &amp; Company", "GPE" : []}
+{"ORG" : "Zumiez", "GPE" : []}
+{"ORG" : "Plains All American Pipeline", "GPE" : []}
+{"ORG" : "Brocade Communications Systems", "GPE" : []}
+{"ORG" : "Chuck E. Cheese's", "GPE" : []}
+{"ORG" : "Sur La Table", "GPE" : []}
+{"ORG" : "Dogfish Head Brewery", "GPE" : []}
+{"ORG" : "Kaiser Aluminum", "GPE" : []}
+{"ORG" : "Esterline", "GPE" : []}
+{"ORG" : "Amgen", "GPE" : []}
+{"ORG" : "Sprint Corporation", "GPE" : []}
+{"ORG" : "Quest Diagnostics", "GPE" : []}
+{"ORG" : "Midway Games", "GPE" : []}
+{"ORG" : "North Sails", "GPE" : []}
+{"ORG" : "Syntel", "GPE" : []}
+{"ORG" : "NCR Corporation", "GPE" : []}
+{"ORG" : "Piggybackr", "GPE" : []}
+{"ORG" : "The Coca-Cola Company", "GPE" : []}
+{"ORG" : "CVS Caremark", "GPE" : []}

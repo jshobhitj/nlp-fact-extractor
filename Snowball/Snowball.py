@@ -180,8 +180,9 @@ class Snowball:
         
         idx = 0
         for seed in self.seed_tuples:
-#             seed_base_org = seed.tag1_value.replace(" ", "")
-            if seed.tag1_value in companies:
+            st = seed.tag1_value
+            st = re.sub('[t|T]he\s+', '', st)
+            if st in companies:
                 print seed
                 idx += 1
 

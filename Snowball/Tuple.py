@@ -20,7 +20,7 @@ class Tuple:
         
     def __repr__(self):
         return self.tag1 + " : " + self.tag1_value.encode('ascii', 'ignore') + ", " \
-               + self.tag2 + " : " + self.tag2_value.encode('ascii', 'ignore') + ", Conf: " + str(self.conf)
+               + self.tag2 + " : " + self.tag2_value.encode('ascii', 'ignore')
 
     def __eq__(self, other):
         if other is None:
